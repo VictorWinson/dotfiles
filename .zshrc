@@ -79,7 +79,6 @@ ZSH_THEME="powerlevel10k"
 plugins=(git
 	 zsh-syntax-highlighting
 	 zsh-autosuggestions
-	 sublime
 	 sudo
 	 colored-man-pages
 	 nmap
