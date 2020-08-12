@@ -117,15 +117,17 @@ if ! shopt -oq posix; then
 fi
 
 # custom aliases
-#alias vim="nvim"
+alias vim="nvim"
 #alias cat="bat"
-#alias ra="ranger"
+alias ra="ranger"
 #alias python="python3"
 alias mv="mv -i"
 #alias ls="exa"
 #alias traceroute="mtr"
-#alias df="pydf"
+alias df="pydf"
 
 # custom functions
-function mkcd(){mkdir -p "$@" &&
-		eval cd "\"\$@\"";}
+function mkcd() {
+    mkdir -p "$@" &&
+	eval cd "\"\$@\"";
+}
