@@ -82,6 +82,7 @@ plugins=(git
 	 sudo
 	 colored-man-pages
 	 nmap
+	 fzf
  	)
 
 source $ZSH/oh-my-zsh.sh
@@ -120,6 +121,7 @@ export GOBIN="/home/victor/program/go/bin"
 
 # custom aliases
 alias vim="nvim"
+alias vi="nvim"
 alias cat="bat"
 alias ra="ranger"
 alias python="python3"
@@ -138,13 +140,16 @@ function cdbg(){gcc -g "$@" && gdb ./a.out && rm a.out;}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+# fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+export QT4_IM_MODULE=ibus
+export CLUTTER_IM_MODULE=ibus
 
 # fzf environment
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+	export FZF_DEFAULT_COMMAND='rg --files --hidden'
+	export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 # thefuck
 eval $(thefuck --alias)
