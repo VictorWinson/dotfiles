@@ -134,7 +134,8 @@ alias df="pydf"
 function mkcd(){mkdir -p "$@" &&
 		eval cd "\"\$@\"";}
 
-function crun(){gcc "$@" && clear && ./a.out && rm a.out;}
+function crun(){gcc "$@" && ./a.out && rm a.out;}
+function cpprun(){g++ "$@" && ./a.out && rm a.out;}
 function cdbg(){gcc -g "$@" && gdb ./a.out && rm a.out;}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

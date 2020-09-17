@@ -33,10 +33,15 @@ call plug#begin('~/.nvim/plugged')
 	\ 'coc-go',
 	\ 'coc-html',
 	\ 'coc-json',
+	\ 'coc-pairs',
 	\ 'coc-phpls',
 	\ 'coc-pyls',
-	\ 'coc-python',
+	\ 'coc-highlight',
 	\ 'coc-sql']
+"	\ 'coc-python',
+
+	" highlight where cursor lies 
+	autocmd CursorHold * silent call CocActionAsync('highlight')
 
 	" let coc auto-completion work with <TAB>
 		inoremap <silent><expr> <TAB>
@@ -100,3 +105,36 @@ autocmd TextChanged,TextChangedI <buffer> silent write " auto save
 
 inoremap <F2> <Esc>:%s/\r//g<cr> gg
 nnoremap <F2> :%s/\r//g<cr> gg
+
+"""""""""""""""
+" custom func 
+"""""""""""""""
+
+noremap <A-r> :call CompileRun()<CR>
+" language compile and run
+func! CompileRun()
+	exec "w"
+	if &filetype == 'python'
+		set splitbelow
+		:10sp " height 10
+		:term python3 '%'
+	endif
+
+	if &filetype == 'c'
+		set splitbelow
+		:10sp " height 10
+		:term gcc '%' && ./a.out && rm a.out
+	endif
+
+	if &filetype == 'cpp'
+		set splitbelow
+		:10sp " height 10
+		:term g++ '%' && ./a.out && rm a.out
+	endif
+
+	if &filetype == 'go'
+		set splitbelow
+		:10sp " height 10
+		:term go run '%'
+	endif
+endfunc
