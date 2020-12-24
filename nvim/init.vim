@@ -34,11 +34,11 @@ call plug#begin('~/.nvim/plugged')
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-pairs',
-	\ 'coc-phpls',
 	\ 'coc-pyls',
 	\ 'coc-highlight',
 	\ 'coc-sql']
 "	\ 'coc-python',
+"	\ 'coc-phpls',
 
 	" highlight where cursor lies 
 	autocmd CursorHold * silent call CocActionAsync('highlight')
